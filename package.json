@@ -71,18 +71,30 @@
     "LICENSE"
   ],
   "jspm": {
-    "main": "js/bootstrap",
+    "main": "dist/js/bootstrap",
+    "files": [
+      "dist",
+      "less"
+    ],
+    "ignore": [
+      "docs/",
+      "fonts/",
+      "grunt/",
+      "js/",
+      "test-infra/"
+    ],
+    "dependencies": {
+      "jquery": "*",
+      "css": "*"
+    },
     "shim": {
-      "js/bootstrap": {
-        "deps": "jquery",
+      "dist/js/bootstrap": {
+        "deps": ["jquery", "../css/bootstrap.css!"],
         "exports": "$"
       }
     },
-    "files": [
-      "css",
-      "fonts",
-      "js",
-      "less"
-    ]
+    "buildConfig": {
+      "uglify": true
+    }
   }
 }
